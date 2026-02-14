@@ -114,7 +114,7 @@ cd MEGAPLEX-PRIME-ASSIGNMENT
 cd server
 npm install
 # Create a .env file and add your MONGO_URI
-echo "MONGO_URI=your_mongodb_connection_string" > .env
+echo "DATABASE_URL=your_mongodb_connection_string" > .env
 # Seed the database with initial content
 npx ts-node src/seed.ts
 # Start the server
@@ -146,10 +146,10 @@ _Client runs on `http://localhost:5173_`
 
 ### **Backend (`server/.env`)**
 
-| Variable    | Description                              |
-| ----------- | ---------------------------------------- |
-| `MONGO_URI` | Connection string for MongoDB database   |
-| `PORT`      | (Optional) Port number, defaults to 5000 |
+| Variable       | Description                              |
+| -------------- | ---------------------------------------- |
+| `DATABASE_URL` | Connection string for MongoDB database   |
+| `PORT`         | (Optional) Port number, defaults to 5000 |
 
 ### **Frontend (`client/.env`)**
 
@@ -172,6 +172,9 @@ _Client runs on `http://localhost:5173_`
 ## 🚢 Deployment
 
 Both the frontend and backend are deployed on **Vercel** for high availability and fast global delivery.
+
+- **Frontend Deployment:** [https://megaplex-prime.vercel.app](https://megaplex-prime-assignment-t3ai.vercel.app)
+- **Backend Deployment:** [https://megaplex-api.vercel.app](https://megaplex-prime-assignment.vercel.app)
 
 ### **Backend (Vercel Serverless)**
 
