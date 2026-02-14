@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import type { FAQItem, FAQProps } from "./types";
+import type { FAQProps } from "./types";
 
 const Faq: React.FC<FAQProps> = ({ data }) => {
   const { heading = "Frequently Asked Questions", questions = [] } = data || {};
