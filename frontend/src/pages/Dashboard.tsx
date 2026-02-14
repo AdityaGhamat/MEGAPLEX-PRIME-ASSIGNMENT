@@ -14,6 +14,7 @@ import {
   Loader2,
 } from "lucide-react";
 import toast from "react-hot-toast";
+import SEO from "../components/Seo";
 
 const ArrayEditor = ({
   data,
@@ -93,7 +94,7 @@ const ArrayEditor = ({
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient(); // Access the cache
+  const queryClient = useQueryClient();
   const [activeSection, setActiveSection] = useState("hero");
   const [formData, setFormData] = useState<any>({});
 
@@ -166,6 +167,9 @@ const Dashboard = () => {
 
   return (
     <div className="flex h-screen bg-gray-100 font-sans">
+      {/* Add SEO component here */}
+      <SEO title="Admin Dashboard" description="Manage your website content." />
+
       <aside className="w-64 bg-brand-dark text-white flex flex-col md:flex">
         <div className="p-6 border-b border-gray-700">
           <h2 className="text-2xl font-bold">

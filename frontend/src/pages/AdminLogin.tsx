@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { api } from "../services/api";
 import { Lock, Mail, KeyRound, Loader2 } from "lucide-react";
 import toast from "react-hot-toast";
+import SEO from "../components/Seo";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -31,6 +32,11 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-brand-dark px-4">
+      <SEO
+        title="Admin Portal"
+        description="Restricted access for Megaplex Prime administrators."
+      />
+
       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md border border-gray-100">
         <div className="text-center mb-8">
           <div className="bg-brand-light w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">

@@ -40,3 +40,10 @@ export interface UpdatesProps {
     updates?: { title: string; status: string; image: string }[];
   };
 }
+
+export interface SEOProps {
+  title: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}

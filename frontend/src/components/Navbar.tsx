@@ -19,6 +19,27 @@ const Navbar = () => {
     { name: "FAQ", href: "#faq" },
   ];
 
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsOpen(false);
+      return;
+    }
+
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -28,7 +49,6 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
         <div
           className={`text-2xl font-bold tracking-tighter ${
             isScrolled ? "text-brand-dark" : "text-white"
@@ -37,13 +57,13 @@ const Navbar = () => {
           MEGAPLEX <span className="text-brand-accent">PRIME</span>
         </div>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium uppercase tracking-wide hover:text-brand-accent transition-colors ${
+              onClick={(e) => handleScroll(e, link.href)} // Apply handler here
+              className={`text-sm font-medium uppercase tracking-wide hover:text-brand-accent transition-colors cursor-pointer ${
                 isScrolled ? "text-brand-primary" : "text-white/90"
               }`}
             >
@@ -56,7 +76,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden z-50 text-brand-accent"
@@ -78,8 +97,8 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-2xl font-bold text-brand-dark hover:text-brand-accent"
+              onClick={(e) => handleScroll(e, link.href)}
+              className="text-2xl font-bold text-brand-dark hover:text-brand-accent cursor-pointer"
             >
               {link.name}
             </a>
