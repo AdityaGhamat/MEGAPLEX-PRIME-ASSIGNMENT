@@ -6,7 +6,7 @@ import { connectToDatabase } from "./modules/core/utils/connectDatabase";
 import cmsRoutes from "./modules/cms/routes/cmsRoutes";
 import authRoutes from "./modules/auth/routes/authRoutes";
 class Server {
-  private app: Express;
+  public app: Express;
   constructor() {
     this.app = express();
     this.middleware();
